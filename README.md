@@ -1,41 +1,44 @@
-# **World Values Survey (WVS) - China Dataset**
+# Analyzing Financial Satisfaction and Perception of Corruption
 
-## **1. Key Information**
-- **Dataset Name**: World Values Survey (Wave 7, 2017-2022)
-- **Country**: China (ISO Code: 156)
-- **Source**: World Values Survey Association ([www.worldvaluessurvey.org](https://www.worldvaluessurvey.org))
-- **File Path**: `/mnt/data/WVS_codebook.pdf`
-- **Observations**: 1000 (Full WVS dataset for China)
-- **Purpose**: Analyze the relationship between **financial satisfaction** and **perception of corruption**
+## Project Purpose
+The purpose of this project is to analyze the relationship between financial satisfaction and perception of corruption. The analysis aims to uncover how an individual's financial well-being may correlate with their view on corruption in public institutions.
 
----
-## **2. Selected Variables and Descriptions**
+## Dataset Information
+- **Dataset Location:** Local machine
+- **Dataset Path:** `data/dataset.csv`
+- **Description:** The dataset contains survey responses with various socio-economic and demographic variables. It includes measures of financial satisfaction, perception of corruption, income, education, and other relevant factors that allow for a comprehensive analysis of the research question.
 
-| **Variable**   | **Description** |
-|---------------|----------------|
-| **Q50** | Satisfaction with financial situation of household (1-10 scale) |
-| **Q112** | Perception of corruption in government (1=Very corrupt, 4=Not corrupt) |
-| **Q261** | Age of respondent (Numeric) |
-| **Q264** | Household Income Level (1=Low, 3=High) |
-| **Q49** | Overall life satisfaction (1-10 scale) |
+## Selected Variables for Analysis
+A total of 8 relevant variables were chosen to provide context and support the analysis:
 
----
-## **3. Descriptive Statistics for Key Variables**
+1. **FinancialSatisfaction:** Measures the respondent’s satisfaction with their financial situation.
+2. **PerceptionOfCorruption:** An index reflecting how respondents perceive corruption within public institutions.
+3. **Income:** The respondent’s income level.
+4. **Age:** The age of the respondent.
+5. **Education:** The highest level of education attained by the respondent.
+6. **EmploymentStatus:** The current employment status.
+7. **Gender:** The respondent’s gender.
+8. **Region:** The geographic region of the respondent.
 
-| Variable | Mean | Std Dev | Min | Max |
-|----------|------|---------|-----|-----|
-| **Q50 (Financial Satisfaction)** | 5.45  | 2.91 | 1 | 10 |
-| **Q112 (Corruption Perception - Govt)** | 2.45  | 1.12 | 1 | 4 |
-| **Q261 (Age)** | 47.89 | 18.10 | 18 | 80 |
-| **Q264 (Household Income Level)** | 1.99 | 0.82 | 1 | 3 |
-| **Q49 (Life Satisfaction)** | 5.45 | 2.91 | 1 | 10 |
+For detailed descriptive analysis, the following 5 variables were selected as the most important:
+- **FinancialSatisfaction**
+- **PerceptionOfCorruption**
+- **Income**
+- **Age**
+- **Education**
 
----
-## **4. Notes**
-- The dataset now includes **1000 observations** from the full WVS dataset for China.
-- The study aims to investigate whether financial satisfaction is influenced by the perception of corruption.
-- Variables were selected based on their relevance to economic well-being and governance perception.
+## Descriptive Statistics for Selected Variables
 
----
-**For further details, refer to the [WVS Codebook](https://www.worldvaluessurvey.org/WVSDocumentationWV7.jsp).**
+Below is an illustrative table of descriptive statistics for the five key variables. (Note: The values provided are for demonstration purposes; actual results will depend on the dataset.)
+
+| Statistic               | FinancialSatisfaction | PerceptionOfCorruption | Income  | Age    | Education |
+|-------------------------|-----------------------|------------------------|---------|--------|-----------|
+| **Count**               | 1000                  | 1000                   | 1000    | 1000   | 1000      |
+| **Mean**                | 3.5                   | 4.2                    | 45000   | 35     | 14        |
+| **Std Dev**             | 1.2                   | 1.8                    | 15000   | 10     | 2         |
+| **Minimum**             | 1                     | 1                      | 10000   | 18     | 8         |
+| **25th Percentile**     | 2.5                   | 3.5                    | 35000   | 28     | 13        |
+| **Median (50th Perc.)** | 3.5                   | 4.0                    | 45000   | 35     | 14        |
+| **75th Percentile**     | 4.5                   | 5.0                    | 55000   | 42     | 15        |
+| **Maximum**             | 5                     | 7                      | 100000  | 70     | 20        |
 
