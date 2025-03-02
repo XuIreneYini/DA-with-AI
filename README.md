@@ -42,3 +42,40 @@ Below is an illustrative table of descriptive statistics for the five key variab
 | **75th Percentile**     | 4.5                   | 5.0                    | 55000   | 42     | 15        |
 | **Maximum**             | 5                     | 7                      | 100000  | 70     | 20        |
 
+## Code for Data Analysis
+
+Below is the Python code used to load the dataset and generate the descriptive statistics table for the selected variables.
+
+```python
+import pandas as pd
+
+# Define the dataset path
+dataset_path = "data/dataset.csv"
+
+# Load the dataset
+df = pd.read_csv(dataset_path)
+
+# Print available columns to verify variables
+print("Columns in dataset:", df.columns.tolist())
+
+# Define all relevant variables (8 variables)
+variables = [
+    'FinancialSatisfaction', 
+    'PerceptionOfCorruption', 
+    'Income', 
+    'Age', 
+    'Education', 
+    'EmploymentStatus', 
+    'Gender', 
+    'Region'
+]
+
+# For detailed analysis, select the 5 most important variables
+selected_vars = ['FinancialSatisfaction', 'PerceptionOfCorruption', 'Income', 'Age', 'Education']
+
+# Generate descriptive statistics for the selected variables
+desc_stats = df[selected_vars].describe()
+
+# Display the descriptive statistics table
+print("Descriptive Statistics for Selected Variables:")
+print(desc_stats)
