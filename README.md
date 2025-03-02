@@ -89,13 +89,14 @@ We highlight five core variables as especially crucial:
 
 ### Table: Basic Descriptive Statistics
 
-| Variable                               | Mean   | Std Dev | Min  | Max  | n    |
-|---------------------------------------|-------:|--------:|-----:|-----:|-----:|
-| **Q49 (Life Satisfaction)**           | x.xx   | y.yy    | 1    | 10   | N1   |
-| **Q71 (Confidence in Government)**    | a.aa   | b.bb    | 1    | 4    | N2   |
-| **Q57 (Generalized Trust)**           | c.cc   | d.dd    | 1    | 2    | N3   |
-| **Q50 (Financial Satisfaction)**      | e.ee   | f.ff    | 1    | 10   | N4   |
-| **Q260 (Age)**                        | g.gg   | h.hh    | 18?  | 99?  | N5   |
+| Variable                         | Count   | Mean    | Std Dev  | Min    | 25%    | 50%    | 75%    | Max    |
+|----------------------------------|--------:|--------:|--------:|-------:|-------:|-------:|-------:|-------:|
+| **Q49 (Life Satisfaction)**      | 3036    | 7.3798  | 2.1246  | -2.0000 | 6.0000  | 8.0000  | 9.0000  | 10.0000 |
+| **Q71 (Confidence in Government)** | 3036    | 1.5511  | 0.6296  | -2.0000 | 1.0000  | 2.0000  | 2.0000  | 4.0000  |
+| **Q57 (Generalized Trust)**      | 3036    | 1.3159  | 0.5683  | -2.0000 | 1.0000  | 1.0000  | 2.0000  | 2.0000  |
+| **Q50 (Financial Satisfaction)** | 3036    | 6.4931  | 2.3208  | -2.0000 | 5.0000  | 7.0000  | 8.0000  | 10.0000 |
+| **Q260 (Age)**                   | 3036    | 1.5491  | 0.4977  |  1.0000 | 1.0000  | 2.0000  | 2.0000  | 2.0000  |
+
 
 
 
@@ -111,7 +112,7 @@ We highlight five core variables as especially crucial:
 import pandas as pd
 
 # 1. Load data
-data_path = "/mnt/data/WVS_subset.csv"
+data_path ="D:\winter  term\DA AI\WVS_subset.csv"
 df = pd.read_csv(data_path)
 
 # 2. Filter for China only (B_COUNTRY == 156)
