@@ -1,79 +1,127 @@
-# Analyzing Financial Satisfaction and Perception of Corruption
+# Research Project on Trust in Government and Life Satisfaction in China
 
-## Project Purpose
-This project analyzes the relationship between financial satisfaction and the perception of corruption. The goal is to understand how individuals' financial well-being correlates with their views on corruption in public institutions.
+## 1. Overview and Research Question
+**Research Question:**  
+> *How does confidence in governmental institutions relate to individuals’ overall life satisfaction in China?*
 
-## Dataset Information
-- **Dataset Location:** Local machine
-- **Dataset Path:** `D:\winter  term\DA AI\WVS_subset.csv`
+This research question explores whether varying levels of confidence in government and related institutions correlate with Chinese respondents’ sense of well-being and satisfaction. We will focus on data from the World Values Survey (WVS) Wave 7, specifically the subset in which `B_COUNTRY = 156` (China).
+
+## 2. Key Information About the Dataset
+- **Dataset Name:** World Values Survey Wave 7 (Subset)
+- **File Name and Path:** `/mnt/data/WVS_subset.csv`
 - **Description:**  
-  The dataset is a subset from the World Values Survey containing responses from 3036 observations. It includes various socio-economic and demographic variables along with responses to survey questions. For this analysis, we focus on selected variables related to financial satisfaction, perception of corruption, income, age, and education.
+  The World Values Survey (WVS) is a global research project that explores people’s values, beliefs, and cultural norms in over 80 societies. In Wave 7 (2017–2022), respondents were surveyed on a wide range of topics including trust, political participation, life satisfaction, economic values, religion, demographics, and more.  
+- **Country Filter:** For this project, we only use observations where `B_COUNTRY = 156` (China).
 
-### Key Variable: B_COUNTRY
-- **B_COUNTRY:** This variable indicates the country code for the survey respondent. In this dataset, the value **156** corresponds to **China**.  
-  *Note: This ensures the proper identification of respondents from China.*
+## 3. Variables Selected (10–25 Variables)
 
-## Selected Variables for Analysis
-Eight variables were initially chosen to build a robust framework; however, for detailed descriptive analysis, we focus on the five most critical variables:
-  
-1. **Financial Satisfaction (Q10):** Measures the respondent’s satisfaction with their financial situation.
-2. **Perception of Corruption (Q11):** Captures respondents’ views on the level of corruption in public institutions.
-3. **Income (Q12):** Represents the respondent’s income level.
-4. **Age (S025):** Indicates the age of the respondent.
-5. **Education (S018):** Records the highest level of education attained by the respondent.
+Below is a list of 15 variables we consider most relevant to our research question on the relationship between trust in government and life satisfaction in China, along with short descriptions (based on the WVS codebook).  
 
-## Descriptive Statistics for Selected Variables
+1. **Q49**: Satisfaction with your life  
+   - *Range:* 1 (Completely dissatisfied) to 10 (Completely satisfied)  
+   - *Rationale:* Our primary outcome measure of life satisfaction.
 
-Below is an illustrative table of descriptive statistics for the five key variables. The count reflects the 3036 observations in the dataset. (The numerical values shown are for demonstration purposes; actual results will depend on the dataset.)
+2. **Q50**: Satisfaction with financial situation of household  
+   - *Range:* 1 (Dissatisfied) to 10 (Satisfied)  
+   - *Rationale:* Used as a control for household economic well-being, which can affect both trust and satisfaction.
 
-| Statistic               | Q10 (Financial Satisfaction) | Q11 (Perception of Corruption) | Q12 (Income) | S025 (Age) | S018 (Education) |
-|-------------------------|------------------------------|-------------------------------|--------------|------------|------------------|
-| **Count**               | 3036                         | 3036                          | 3036         | 3036       | 3036             |
-| **Mean**                | 3.5                          | 4.2                           | 45000        | 35         | 14               |
-| **Std Dev**             | 1.2                          | 1.8                           | 15000        | 10         | 2                |
-| **Minimum**             | 1                            | 1                             | 10000        | 18         | 8                |
-| **25th Percentile**     | 2.5                          | 3.5                           | 35000        | 28         | 13               |
-| **Median (50th Perc.)** | 3.5                          | 4.0                           | 45000        | 35         | 14               |
-| **75th Percentile**     | 4.5                          | 5.0                           | 55000        | 42         | 15               |
-| **Maximum**             | 5                            | 7                             | 100000       | 70         | 20               |
+3. **Q71**: Confidence in the government (in your nation’s capital)  
+   - *Range:* 1 (A great deal) to 4 (None at all)  
+   - *Rationale:* Our main independent variable capturing trust/confidence in government.
 
-## Code for Data Analysis
+4. **Q73**: Confidence in Parliament  
+   - *Range:* 1 (A great deal) to 4 (None at all)  
+   - *Rationale:* Another governmental institution that may influence overall trust.
 
-Below is the Python code used to load the dataset and generate descriptive statistics for the selected variables.
+5. **Q70**: Confidence in the Justice System/Courts  
+   - *Range:* 1 (A great deal) to 4 (None at all)  
+   - *Rationale:* Confidence in the rule of law can affect perceived legitimacy of the government.
+
+6. **Q69**: Confidence in the police  
+   - *Range:* 1 (A great deal) to 4 (None at all)  
+   - *Rationale:* Another institutional trust measure that can affect how respondents perceive social stability.
+
+7. **Q57**: Most people can be trusted (generalized social trust)  
+   - *Range:* 1 (Most people can be trusted) or 2 (Need to be very careful)  
+   - *Rationale:* Measures general trust, which might correlate with both government confidence and life satisfaction.
+
+8. **Q48**: Freedom of choice and control  
+   - *Range:* 1 (None at all) to 10 (A great deal)  
+   - *Rationale:* A subjective control measure that can influence satisfaction.
+
+9. **Q47**: State of health (subjective)  
+   - *Range:* 1 (Very good) to 5 (Very poor)  
+   - *Rationale:* Self-reported health can be a confounding variable in life satisfaction studies.
+
+10. **Q260**: Age  
+   - *Range:* Numeric  
+   - *Rationale:* Standard demographic measure.
+
+11. **Q262**: Sex (Respondent’s gender)  
+   - *Range:* 1 (Male) or 2 (Female)  
+   - *Rationale:* Standard demographic measure.
+
+12. **Q275**: Highest educational level attained  
+   - *Range:* Various codes  
+   - *Rationale:* Education often influences political attitudes and life satisfaction.
+
+13. **Q288**: Scale of incomes  
+   - *Range:* 1 (Lowest group) to 10 (Highest group)  
+   - *Rationale:* Another proxy for respondent’s socioeconomic status (besides Q50).
+
+14. **Q288R** (if present) or **Q287**: Income group or Employment status  
+   - *Range:* Varies  
+   - *Rationale:* Additional socioeconomic/demographic data.
+
+15. **Q56**: Standard of living compared with parents  
+   - *Range:* 1 (Better off) to 3 (About the same) or 2 (Worse off)  
+   - *Rationale:* Perceived upward or downward mobility could factor into trust and satisfaction.
+
+## 4. Descriptive Statistics for 5 Selected Variables
+
+We highlight five core variables as especially crucial:
+
+1. **Q49**: Life Satisfaction (1–10)  
+2. **Q71**: Confidence in Government (1–4)  
+3. **Q57**: Generalized Trust (1 or 2)  
+4. **Q50**: Satisfaction with Financial Situation (1–10)  
+5. **Q260**: Age (numeric)
+
+### Table: Basic Descriptive Statistics
+
+| Variable                               | Mean   | Std Dev | Min  | Max  | n    |
+|---------------------------------------|-------:|--------:|-----:|-----:|-----:|
+| **Q49 (Life Satisfaction)**           | x.xx   | y.yy    | 1    | 10   | N1   |
+| **Q71 (Confidence in Government)**    | a.aa   | b.bb    | 1    | 4    | N2   |
+| **Q57 (Generalized Trust)**           | c.cc   | d.dd    | 1    | 2    | N3   |
+| **Q50 (Financial Satisfaction)**      | e.ee   | f.ff    | 1    | 10   | N4   |
+| **Q260 (Age)**                        | g.gg   | h.hh    | 18?  | 99?  | N5   |
+
+
+
+## 5. References
+- World Values Survey Association (2022). **World Values Survey Wave 7 (2017-2022) Official Questionnaire and Codebook.**  
+- [WVS Official Website](http://www.worldvaluessurvey.org/)
+
+---
+
+## **Code Example (Python)**
 
 ```python
 import pandas as pd
 
-# Define the dataset path (using a raw string to handle backslashes)
-dataset_path = r"D:\winter  term\DA AI\WVS_subset.csv"
+# 1. Load data
+data_path = "/mnt/data/WVS_subset.csv"
+df = pd.read_csv(data_path)
 
-# Load the dataset
-df = pd.read_csv(dataset_path)
+# 2. Filter for China only (B_COUNTRY == 156)
+df_china = df[df["B_COUNTRY"] == 156]
 
-# Optional: Strip whitespace from column names in case they exist
-df.columns = df.columns.str.strip()
+# 3. Select the variables of interest
+vars_of_interest = ["Q49", "Q71", "Q57", "Q50", "Q260"]
+subset_china = df_china[vars_of_interest].copy()
 
-# Print columns to verify the variable names
-print("Columns in dataset:", df.columns.tolist())
+# 4. Descriptive statistics
+descriptive_stats = subset_china.describe()
 
-# Define the 8 relevant variables for the overall project (including additional context variables)
-variables = [
-    'B_COUNTRY',        # Country code (156 indicates China)
-    'B_COUNTRY_ALPHA',  
-    'S025',             # Age
-    'S018',             # Education
-    'Q10',              # Financial Satisfaction
-    'Q11',              # Perception of Corruption
-    'Q12',              # Income
-    'Q1'                # (Example additional variable, e.g., Employment Status or similar)
-]
-
-# For detailed analysis, select the 5 most important variables
-selected_vars = ['Q10', 'Q11', 'Q12', 'S025', 'S018']
-
-# Generate descriptive statistics for the selected variables
-desc_stats = df[selected_vars].describe()
-
-# Display the descriptive statistics table
-print("Descriptive Statistics for Selected Variables:")
-print(desc_stats)
+print(descriptive_stats)
