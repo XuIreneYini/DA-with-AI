@@ -7,13 +7,13 @@
 This research question explores whether varying levels of confidence in government and related institutions correlate with Chinese respondents’ sense of well-being and satisfaction. We will focus on data from the World Values Survey (WVS) Wave 7, specifically the subset in which `B_COUNTRY = 156` (China).
 
 ## 2. Key Information About the Dataset
-- **Dataset Name:** World Values Survey Wave 7 (Subset)
-- **File Name and Path:** `/mnt/data/WVS_subset.csv`
+- **Dataset Name:** WVS_subset
+- **File Name and Path:** `D:\winter  term\DA AI\WVS_subset.csv`
 - **Description:**  
   The World Values Survey (WVS) is a global research project that explores people’s values, beliefs, and cultural norms in over 80 societies. In Wave 7 (2017–2022), respondents were surveyed on a wide range of topics including trust, political participation, life satisfaction, economic values, religion, demographics, and more.  
 - **Country Filter:** For this project, we only use observations where `B_COUNTRY = 156` (China).
 
-## 3. Variables Selected (10–25 Variables)
+## 3. Variables Selected
 
 Below is a list of 15 variables we consider most relevant to our research question on the relationship between trust in government and life satisfaction in China, along with short descriptions (based on the WVS codebook).  
 
