@@ -106,7 +106,7 @@ We highlight five core variables as especially crucial:
 
 ---
 
-## **Code Example (Python)**
+## **Code (Python)**
 
 ```python
 import pandas as pd
